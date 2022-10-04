@@ -8,6 +8,7 @@ import inIcon from './assets/linkedin-icon.svg';
 import codeopenIcon from './assets/codepen-icon.svg';
 import webIcon from './assets/website-icon.svg';
 import InfoBlock from './components/InfoBlock';
+import { ReactComponent as TelegramIcon } from './assets/telegram.svg';
 import { ReactComponent as GithubIcon } from './assets/github-icon.svg';
 import JobBlock from './components/JobBlock';
 import SkillBlock from './components/SkillBlock';
@@ -16,41 +17,49 @@ import ListBlock from './components/ListBlock';
 
 const App = () => {
   return (
-    <div className='grid content-markup h-screen'>
-      <div className='photo'><img src={avatar} alt="me"/></div>
-      <div className='col-start-2 col-end-[-1] flex text-white bg-back justify-between p-4'>
-        <div className='mr-4'>
-          <div className='text-2xl uppercase font-semibold'>{u.name}</div>
-          <div className='text-lg mb-2'>{u.position}</div>
-          <div className='contact'>
-            <img src={mailIcon} alt='mail' />
-            {u.mail}
+    <div className='h-screen'>
+      <div className='bg-back h-[160px]'>
+        <div className='flex m-auto w-full lg:w-[1024px]'>
+          <img className='h-[160px]' src={avatar} alt="me"/>
+          <div className='flex text-white justify-between px-4 py-2 infoWrapper'>
+            <div className='mr-4'>
+              <div className='text-2xl uppercase font-semibold tracking-wider'>{u.name}</div>
+              <div className='text-lg mb-2'>{u.position}</div>
+              <div className='contact'>
+                <img src={mailIcon} alt='mail' />
+                {u.mail}
+              </div>
+              <div className='contact'>
+                <img src={phoneIcon} alt='phone' />
+                {u.phone}
+              </div>
+              {u.contacts.telegram && <a className='contact' href={u.contacts.telegram.link}>
+                <TelegramIcon />
+                {u.contacts.telegram.title}
+              </a>}
+            </div>
+            <div className='pt-8'>
+              {u.contacts.in && <a className='contact' href={u.contacts.in}>
+                <img src={inIcon} alt='icon' />
+                {u.contacts.in}
+              </a>}
+              {u.contacts.github && <a className='contact' href={u.contacts.github}>
+                <GithubIcon />
+                {u.contacts.github}
+              </a>}
+              {u.contacts.codeopen && <div className='contact'>
+                <img src={codeopenIcon} alt='codeopen' />
+                {u.contacts.codeopen}
+              </div>}
+              {u.contacts.web && <div className='contact'>
+                <img src={webIcon} alt='web' />
+                {u.contacts.web}
+              </div>}
+            </div>
           </div>
-          <div className='contact'>
-            <img src={phoneIcon} alt='phone' />
-            {u.phone}
-          </div>
-        </div>
-        <div>
-          {u.contacts.in && <a className='contact' href={u.contacts.in}>
-            <img src={inIcon} alt='icon' />
-            {u.contacts.in}
-          </a>}
-          {u.contacts.github && <a className='contact' href={u.contacts.github}>
-            <GithubIcon />
-            {u.contacts.github}
-          </a>}
-          {u.contacts.codeopen && <div className='contact'>
-            <img src={codeopenIcon} alt='codeopen' />
-            {u.contacts.codeopen}
-          </div>}
-          {u.contacts.web && <div className='contact'>
-            <img src={webIcon} alt='web' />
-            {u.contacts.web}
-          </div>}
         </div>
       </div>
-      <div className='p-4 grid info-markup col-span-2'>
+      <div className='p-4 grid info-markup col-span-2 m-auto w-full lg:w-[1024px]'>
         <div className='col-start-1 col-end-[-1]'>
           <InfoBlock title={u.summary.title[u.lang]}>
             {u.summary.content[u.lang]}

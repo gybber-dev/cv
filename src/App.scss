@@ -5,15 +5,6 @@
   font-family: "Roboto", serif;
 }
 
-.photo {
-  background-color: black;
-}
-
-.content-markup {
-  grid-template-columns: 144px 1fr;
-  grid-template-rows: 144px 1fr;
-}
-
 .info-markup {
   grid-template-columns: 2fr 1fr;
   grid-template-rows: auto 5fr;
@@ -31,6 +22,7 @@
   @apply font-semibold text-simple my-2
 }
 
-body {
-  //font-family: Roboto, serif;
+.infoWrapper {
+  width: 100%;
+  min-width: max-content;
 }

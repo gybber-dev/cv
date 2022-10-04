@@ -7,6 +7,10 @@ const data = {
   mail: 'az.faezov@gmail.com',
   phone: '+7 707 350 64 45',
   contacts: {
+    telegram: {
+      title: '@Gybber',
+      link: 'https://t.me/Gybber',
+    },
     in: 'https://linkedin.com/in/azat-faezov-aa9400252',
     github: 'https://github.com/gybber-dev',
     codeopen: '',
