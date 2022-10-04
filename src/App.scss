@@ -1,0 +1,36 @@
+.text {
+  font-size: 12px;
+  color: #ffffff;
+  font-weight: 400;
+  font-family: "Roboto", serif;
+}
+
+.photo {
+  background-color: black;
+}
+
+.content-markup {
+  grid-template-columns: 144px 1fr;
+  grid-template-rows: 144px 1fr;
+}
+
+.info-markup {
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto 5fr;
+}
+
+.contact {
+  @apply flex text-white items-center;
+
+  img, svg {
+    @apply mr-1;
+  }
+}
+
+.subtitle {
+  @apply font-semibold text-simple my-2
+}
+
+body {
+  //font-family: Roboto, serif;
+}
