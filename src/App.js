@@ -18,7 +18,7 @@ import ListBlock from './components/ListBlock';
 const App = () => {
   return (
     <div className='h-screen'>
-      <div className='bg-back h-[160px]'>
+      <header className='bg-back h-[160px] min-w-max'>
         <div className='flex m-auto w-full lg:w-[1024px]'>
           <img className='h-[160px]' src={avatar} alt="me"/>
           <div className='flex text-white justify-between px-4 py-2 infoWrapper'>
@@ -58,7 +58,7 @@ const App = () => {
             </div>
           </div>
         </div>
-      </div>
+      </header>
       <div className='p-4 grid info-markup col-span-2 m-auto w-full lg:w-[1024px]'>
         <div className='col-start-1 col-end-[-1]'>
           <InfoBlock title={u.summary.title[u.lang]}>
