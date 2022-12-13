@@ -25,7 +25,7 @@ const JobBlock = ({
   lang,
   portfolio = null,
 }) => (
-  <section className='p-4 pb-6'>
+  <section className='p-4 pl-0 pb-6'>
     <div className='flex justify-between font-bold text-back'>
       <div className='text-lg'>{position}</div>
       <div>{company}</div>
@@ -40,7 +40,7 @@ const JobBlock = ({
     <div className='subtitle'>{titles.technologies[lang]}</div>
     <div className='flex ml'>
       {tags.map((tag, index) => (
-        <div key={index} className='flex justify-center items-center bg-back text-white rounded-2xl px-2 py-0.5 mr-2 last:mr-0'>{tag}</div>
+        <div key={index} className='flex justify-center items-center bg-back text-white rounded-2xl px-2 py-0.5 mr-2 last:mr-0 whitespace-nowrap'>{tag}</div>
       ))}
     </div>
     {portfolio && <>

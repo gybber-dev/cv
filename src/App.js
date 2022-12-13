@@ -21,45 +21,45 @@ const App = () => {
       <header className='bg-back h-[160px] min-w-max'>
         <div className='flex m-auto w-full lg:w-[1024px]'>
           <img className='h-[160px]' src={avatar} alt="me"/>
-          <div className='flex text-white justify-between px-4 py-2 infoWrapper'>
+          <div className='flex text-white justify-between pl-4 pr-8 py-2 infoWrapper'>
             <div className='mr-4'>
               <div className='text-2xl uppercase font-semibold tracking-wider'>{u.name}</div>
               <div className='text-lg mb-2'>{u.position}</div>
-              <div className='contact'>
-                <img src={mailIcon} alt='mail' />
+              <div className='flex text-white items-center'>
+                <img src={mailIcon} alt='mail' className='mr-1' />
                 {u.mail}
               </div>
-              <div className='contact'>
-                <img src={phoneIcon} alt='phone' />
+              <div className='flex text-white items-center'>
+                <img src={phoneIcon} alt='phone' className='mr-1' />
                 {u.phone}
               </div>
-              {u.contacts.telegram && <a className='contact' href={u.contacts.telegram.link}>
-                <TelegramIcon />
+              {u.contacts.telegram && <a className='flex text-white items-center' href={u.contacts.telegram.link}>
+                <TelegramIcon className='mr-1' />
                 {u.contacts.telegram.title}
               </a>}
             </div>
             <div className='pt-8'>
-              {u.contacts.in && <a className='contact' href={u.contacts.in.link}>
-                <img src={inIcon} alt='icon' />
+              {u.contacts.in && <a className='flex text-white items-center mb-1' href={u.contacts.in.link}>
+                <img src={inIcon} alt='icon' className='mr-1' />
                 {u.contacts.in.title}
               </a>}
-              {u.contacts.github && <a className='contact' href={u.contacts.github.link}>
-                <GithubIcon />
+              {u.contacts.github && <a className='flex text-white items-center mb-1' href={u.contacts.github.link}>
+                <GithubIcon className='mr-1' />
                 {u.contacts.github.title}
               </a>}
-              {u.contacts.codeopen && <div className='contact'>
-                <img src={codeopenIcon} alt='codeopen' />
+              {u.contacts.codeopen && <div className='flex text-white items-center mb-1'>
+                <img src={codeopenIcon} alt='codeopen' className='mr-1' />
                 {u.contacts.codeopen}
               </div>}
-              {u.contacts.web && <div className='contact'>
-                <img src={webIcon} alt='web' />
+              {u.contacts.web && <div className='flex text-white items-center mb-1'>
+                <img src={webIcon} alt='web' className='mr-1' />
                 {u.contacts.web}
               </div>}
             </div>
           </div>
         </div>
       </header>
-      <div className='p-4 grid info-markup col-span-2 m-auto w-full lg:w-[1024px]'>
+      <div className='p-8 block md:grid md:grid-cols-[2fr_1fr] md:grid-rows-[auto_5fr] md:col-span-2 m-auto w-full lg:w-[1024px]'>
         <div className='col-start-1 col-end-[-1]'>
           <InfoBlock title={u.summary.title[u.lang]}>
             {u.summary.content[u.lang]}
@@ -74,7 +74,7 @@ const App = () => {
             />))
           }
         </InfoBlock>
-        <div className='pl-4'>
+        <div className='md:pl-4'>
           {u.skills.content[u.lang] && <InfoBlock title={u.skills.title[u.lang]}>
             {u.skills.content[u.lang].map(skill => (
               <SkillBlock key={skill.title} {...skill} />
