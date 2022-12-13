@@ -39,13 +39,13 @@ const App = () => {
               </a>}
             </div>
             <div className='pt-8'>
-              {u.contacts.in && <a className='contact' href={u.contacts.in}>
+              {u.contacts.in && <a className='contact' href={u.contacts.in.link}>
                 <img src={inIcon} alt='icon' />
-                {u.contacts.in}
+                {u.contacts.in.title}
               </a>}
-              {u.contacts.github && <a className='contact' href={u.contacts.github}>
+              {u.contacts.github && <a className='contact' href={u.contacts.github.link}>
                 <GithubIcon />
-                {u.contacts.github}
+                {u.contacts.github.title}
               </a>}
               {u.contacts.codeopen && <div className='contact'>
                 <img src={codeopenIcon} alt='codeopen' />

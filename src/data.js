@@ -11,8 +11,14 @@ const data = {
       title: '@Gybber',
       link: 'https://t.me/Gybber',
     },
-    in: 'https://linkedin.com/in/azat-faezov-aa9400252',
-    github: 'https://github.com/gybber-dev',
+    in: {
+      title: 'LinkedIn',
+      link: 'https://linkedin.com/in/azat-faezov-aa9400252'
+    },
+    github: {
+      title: 'GitHub',
+      link: 'https://github.com/gybber-dev',
+    },
     codeopen: '',
     web: '',
   },
@@ -36,6 +42,17 @@ const data = {
     },
     content: {
       ru: [
+        {
+          position: 'Frontend-разработчик',
+          company: 'Crontech',
+          from: 'сентябрь 2022',
+          to: 'н.в.',
+          achievements: (<>
+            <p>Фронтовая часть криптобиржи. Занимался переводом проекта с VueJS на NextJS. Стэк: React-Redux-TypeScript-Vue. </p>
+            <p>Получил ценный опыт запуска приложения &apos;с нуля&apos;, подтянул знания в стэке React-Redux, познакомился с фреймворком NextJS</p>
+          </>),
+          tags: ['React', 'Redux', 'Redux Toolkit', 'TypeScript', 'NextJS', 'VueJS'],
+        },
         {
           position: 'Frontend-разработчик',
           company: 'Сбербанк',
@@ -96,12 +113,20 @@ const data = {
               value: 50,
             },
             {
+              name: 'NextJS',
+              value: 50,
+            },
+            {
               name: 'MobX',
               value: 50,
             },
             {
               name: 'NodeJS',
               value: 50,
+            },
+            {
+              name: 'Tailwind',
+              value: 80,
             },
             {
               name: 'HTML/CSS/SASS',
