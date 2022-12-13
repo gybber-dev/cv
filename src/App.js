@@ -1,5 +1,5 @@
 import './App.scss';
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import u from './data';
 import mailIcon from './assets/envelope-icon.svg';
 import avatar from './assets/avatar.jpg';
@@ -14,9 +14,19 @@ import JobBlock from './components/JobBlock';
 import SkillBlock from './components/SkillBlock';
 import EduBlock from './components/EduBlock';
 import ListBlock from './components/ListBlock';
+import { useSearchParams } from 'react-router-dom';
 
 const App = () => {
   const [activeJob, setActiveJob] = useState(null);
+  const [lang, setLang] = useState('ru');
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    const newLang = searchParams.get('lang');
+    if (newLang) {
+      setLang(newLang);
+    }
+  }, []);
 
   return (
     <div className='h-screen'>
@@ -63,16 +73,16 @@ const App = () => {
       </header>
       <div className='p-8 block md:grid md:grid-cols-[2fr_1fr] md:grid-rows-[auto_5fr] md:col-span-2 m-auto w-full lg:w-[1024px]'>
         <div className='col-start-1 col-end-[-1]'>
-          <InfoBlock title={u.summary.title[u.lang]}>
-            {u.summary.content[u.lang]}
+          <InfoBlock title={u.summary.title[lang]}>
+            {u.summary.content[lang]}
           </InfoBlock>
         </div>
-        <InfoBlock title={u.experience.title[u.lang]}>
-          {u.experience.content[u.lang].map((job, index) => (
+        <InfoBlock title={u.experience.title[lang]}>
+          {u.experience.content[lang].map((job, index) => (
             <div key={index} onClick={() => setActiveJob(prevState => prevState?.company === job.company ? null : job)}>
               <JobBlock
                 isActive={activeJob?.company === job.company}
-                lang={u.lang}
+                lang={lang}
                 {...job}
               />
             </div>
@@ -80,22 +90,22 @@ const App = () => {
           }
         </InfoBlock>
         <div className='md:pl-4'>
-          {u.skills.content[u.lang] && <InfoBlock title={u.skills.title[u.lang]}>
-            {u.skills.content[u.lang].map(skill => (
+          {u.skills.content[lang] && <InfoBlock title={u.skills.title[lang]}>
+            {u.skills.content[lang].map(skill => (
               <SkillBlock key={skill.title} {...skill} progress={activeJob?.progress} />
             ))}
           </InfoBlock>}
-          {u.edu.content[u.lang] && <InfoBlock title={u.edu.title[u.lang]}>
-            {u.edu.content[u.lang].map((edu, index) => (
+          {u.edu.content[lang] && <InfoBlock title={u.edu.title[lang]}>
+            {u.edu.content[lang].map((edu, index) => (
               <EduBlock key={index} {...edu} />
             )) }
           </InfoBlock>}
-          {u.languages.content[u.lang]?.length > 0 &&
-            <InfoBlock title={u.languages.title[u.lang]}>
-              <ListBlock list={u.languages.content[u.lang]}/>
+          {u.languages.content[lang]?.length > 0 &&
+            <InfoBlock title={u.languages.title[lang]}>
+              <ListBlock list={u.languages.content[lang]}/>
             </InfoBlock>}
-          {u.interests.title[u.lang]?.length > 0 && <InfoBlock title={u.interests.title[u.lang]}>
-            <ListBlock list={u.interests.content[u.lang]} />
+          {u.interests.title[lang]?.length > 0 && <InfoBlock title={u.interests.title[lang]}>
+            <ListBlock list={u.interests.content[lang]} />
           </InfoBlock>}
         </div>
       </div>

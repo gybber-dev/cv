@@ -1,7 +1,6 @@
 import React from 'react';
 
 const data = {
-  lang: 'ru', // ru | en
   name: 'Азат Фаезов',
   position: 'Frontend developer',
   mail: 'az.faezov@gmail.com',
@@ -306,7 +305,7 @@ const data = {
           period: '2008 - 2013',
         },
       ],
-      en: 'content'
+      en: []
     }
   },
   languages: {
@@ -347,7 +346,7 @@ const data = {
         { name: 'Сноубординг' },
         { name: 'Туризм' },
       ],
-      en: 'content'
+      en: []
     }
   }
 };
