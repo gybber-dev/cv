@@ -52,6 +52,40 @@ const data = {
             <p>Получил ценный опыт запуска приложения &apos;с нуля&apos;, подтянул знания в стэке React-Redux, познакомился с фреймворком NextJS</p>
           </>),
           tags: ['React', 'Redux', 'Redux Toolkit', 'TypeScript', 'NextJS', 'VueJS'],
+          progress: [
+            {
+              name: 'JavaScript',
+              value: 5,
+            },
+            {
+              name: 'TypeScript',
+              value: 10,
+            },
+            {
+              name: 'React',
+              value: 5,
+            },
+            {
+              name: 'Redux',
+              value: 10,
+            },
+            {
+              name: 'Redux Toolkit',
+              value: 10,
+            },
+            {
+              name: 'NextJS',
+              value: 50,
+            },
+            {
+              name: 'Tailwind',
+              value: 80,
+            },
+            {
+              name: 'HTML/CSS/SASS',
+              value: 10,
+            },
+          ],
         },
         {
           position: 'Frontend-разработчик',
@@ -67,6 +101,40 @@ const data = {
 
           </>),
           tags: ['React', 'Redux', 'Redux Toolkit', 'TypeScript', 'MobX', 'Ajile/Jira'],
+          progress: [
+            {
+              name: 'JavaScript',
+              value: 50,
+            },
+            {
+              name: 'TypeScript',
+              value: 60,
+            },
+            {
+              name: 'React',
+              value: 75,
+            },
+            {
+              name: 'Redux',
+              value: 60,
+            },
+            {
+              name: 'Redux Toolkit',
+              value: 40,
+            },
+            {
+              name: 'MobX',
+              value: 50,
+            },
+            {
+              name: 'NodeJS',
+              value: 50,
+            },
+            {
+              name: 'HTML/CSS/SASS',
+              value: 50,
+            },
+          ],
         },
         {
           position: 'Оператор группы ввода данных',
@@ -75,6 +143,16 @@ const data = {
           to: 'август 2020',
           achievements: 'Занимался заполнением каталогов товаров для платформ Яндекс.Маркет и Беру. Во время работы писал скрипты на JavaScript, которые автоматизировали значительную часть рутинной работы операторов.',
           tags: ['JavaScript', 'Headless', 'Parsers'],
+          progress: [
+            {
+              name: 'JavaScript',
+              value: 35,
+            },
+            {
+              name: 'HTML/CSS/SASS',
+              value: 20,
+            },
+          ],
           portfolio: 'https://github.com/gybber-dev/JavaScript-projects/tree/master/JS',
         },
       ],
@@ -138,14 +216,14 @@ const data = {
           title: 'Others',
           type: 'other',
           items: [
-            'Git',
-            'Linux',
-            'Python',
-            'SQL',
-            'Docker/Docker-compose',
-            'Headless',
-            'Telegram bots',
-            'Ajile'
+            { name: 'Git' },
+            { name: 'Linux' },
+            { name: 'Python' },
+            { name: 'SQL' },
+            { name: 'Docker/Docker-compose' },
+            { name: 'Headless' },
+            { name: 'Telegram bots' },
+            { name: 'Ajile' },
           ]
         }
       ],

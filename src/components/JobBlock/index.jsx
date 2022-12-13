@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 const titles = {
   achievements: {
@@ -16,6 +17,7 @@ const titles = {
 };
 
 const JobBlock = ({
+  isActive,
   position,
   company,
   from,
@@ -25,7 +27,7 @@ const JobBlock = ({
   lang,
   portfolio = null,
 }) => (
-  <section className='p-4 pl-0 pb-6'>
+  <section className={classNames('transition-colors ease-in-out delay-100 p-6 pb-6 cursor-pointer rounded-2xl', { 'bg-amber-300/50 hover:bg-amber-300/50': isActive, ' hover:bg-amber-300/20': !isActive })}>
     <div className='flex justify-between font-bold text-back'>
       <div className='text-lg'>{position}</div>
       <div>{company}</div>

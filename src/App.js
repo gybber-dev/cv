@@ -1,5 +1,5 @@
 import './App.scss';
-import React from 'react';
+import React, { useState } from 'react';
 import u from './data';
 import mailIcon from './assets/envelope-icon.svg';
 import avatar from './assets/avatar.jpg';
@@ -16,6 +16,8 @@ import EduBlock from './components/EduBlock';
 import ListBlock from './components/ListBlock';
 
 const App = () => {
+  const [activeJob, setActiveJob] = useState(null);
+
   return (
     <div className='h-screen'>
       <header className='bg-back h-[160px] min-w-max'>
@@ -67,17 +69,20 @@ const App = () => {
         </div>
         <InfoBlock title={u.experience.title[u.lang]}>
           {u.experience.content[u.lang].map((job, index) => (
-            <JobBlock
-              key={index}
-              lang={u.lang}
-              {...job}
-            />))
+            <div key={index} onClick={() => setActiveJob(prevState => prevState?.company === job.company ? null : job)}>
+              <JobBlock
+                isActive={activeJob?.company === job.company}
+                lang={u.lang}
+                {...job}
+              />
+            </div>
+          ))
           }
         </InfoBlock>
         <div className='md:pl-4'>
           {u.skills.content[u.lang] && <InfoBlock title={u.skills.title[u.lang]}>
             {u.skills.content[u.lang].map(skill => (
-              <SkillBlock key={skill.title} {...skill} />
+              <SkillBlock key={skill.title} {...skill} progress={activeJob?.progress} />
             ))}
           </InfoBlock>}
           {u.edu.content[u.lang] && <InfoBlock title={u.edu.title[u.lang]}>
