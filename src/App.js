@@ -33,10 +33,10 @@ const App = () => {
       <header className='bg-back h-[160px] min-w-max'>
         <div className='flex m-auto w-full lg:w-[1024px]'>
           <img className='h-[160px]' src={avatar} alt="me"/>
-          <div className='flex text-white justify-between pl-4 pr-8 py-2 infoWrapper'>
+          <div className='flex flex-col sm:flex-row text-white justify-between pl-4 pr-4 md:pr-8 py-2 infoWrapper'>
             <div className='mr-4'>
-              <div className='text-2xl uppercase font-semibold tracking-wider'>{u.name}</div>
-              <div className='text-lg mb-2'>{u.position}</div>
+              <div className='text-xl md:text-2xl uppercase font-semibold tracking-wider'>{u.name}</div>
+              <div className='text-md md:text-lg mb-2 font-normal'>{u.position}</div>
               <div className='flex text-white items-center'>
                 <img src={mailIcon} alt='mail' className='mr-1' />
                 {u.mail}
@@ -45,12 +45,12 @@ const App = () => {
                 <img src={phoneIcon} alt='phone' className='mr-1' />
                 {u.phone}
               </div>
-              {u.contacts.telegram && <a className='flex text-white items-center' href={u.contacts.telegram.link}>
+              {u.contacts.telegram && <a className='hidden sm:flex text-white items-center' href={u.contacts.telegram.link}>
                 <TelegramIcon className='mr-1' />
                 {u.contacts.telegram.title}
               </a>}
             </div>
-            <div className='pt-8'>
+            <div className='hidden sm:block pt-8'>
               {u.contacts.in && <a className='flex text-white items-center mb-1' href={u.contacts.in.link}>
                 <img src={inIcon} alt='icon' className='mr-1' />
                 {u.contacts.in.title}
@@ -68,10 +68,27 @@ const App = () => {
                 {u.contacts.web}
               </div>}
             </div>
+            <div className='flex sm:hidden my-2'>
+              {u.contacts.telegram && <a className='flex text-white items-center mb-1 mr-2' href={u.contacts.telegram.link}>
+                <TelegramIcon className='mr-1 w-6 h-6' />
+              </a>}
+              {u.contacts.in && <a className='flex text-white items-center mb-1 mr-2' href={u.contacts.in.link}>
+                <img src={inIcon} alt='icon' className='mr-1 w-6 h-6' />
+              </a>}
+              {u.contacts.github && <a className='flex text-white items-center mb-1 mr-2' href={u.contacts.github.link}>
+                <GithubIcon className='mr-1 w-6 h-6' />
+              </a>}
+              {u.contacts.codeopen && <div className='flex text-white items-center mb-1 mr-2'>
+                <img src={codeopenIcon} alt='codeopen' className='mr-1 w-6 h-6' />
+              </div>}
+              {u.contacts.web && <div className='flex text-white items-center mb-1'>
+                <img src={webIcon} alt='web' className='mr-1 w-6 h-6' />
+              </div>}
+            </div>
           </div>
         </div>
       </header>
-      <div className='p-8 block md:grid md:grid-cols-[2fr_1fr] md:grid-rows-[auto_5fr] md:col-span-2 m-auto w-full lg:w-[1024px]'>
+      <div className='p-4 md:p-8 block md:grid md:grid-cols-[2fr_1fr] md:grid-rows-[auto_5fr] md:col-span-2 m-auto w-full lg:w-[1024px]'>
         <div className='col-start-1 col-end-[-1]'>
           <InfoBlock title={u.summary.title[lang]}>
             {u.summary.content[lang]}

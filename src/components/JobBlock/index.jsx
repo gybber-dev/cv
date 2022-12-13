@@ -40,9 +40,9 @@ const JobBlock = ({
       {achievements}
     </div>
     <div className='subtitle'>{titles.technologies[lang]}</div>
-    <div className='flex ml'>
+    <div className='flex ml flex-wrap'>
       {tags.map((tag, index) => (
-        <div key={index} className='flex justify-center items-center bg-back text-white rounded-2xl px-2 py-0.5 mr-2 last:mr-0 whitespace-nowrap'>{tag}</div>
+        <div key={index} className='flex justify-center items-center bg-back text-white rounded-2xl px-2 py-0.5 mr-2 mb-1 last:mr-0 whitespace-nowrap'>{tag}</div>
       ))}
     </div>
     {portfolio && <>
