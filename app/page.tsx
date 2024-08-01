@@ -43,7 +43,7 @@ const u = {
             сути дела и умение задаваться нетривиальными вопросами. Зачастую это
             приводит к появлению нестандартных решений.
           </p>
-          <p>Хорошая обучаемость, исполнительность, аналитическое мышление</p>
+          {/*<p>Хорошая обучаемость, исполнительность, аналитическое мышление</p>*/}
         </>
       ),
       en: 'content',
@@ -125,7 +125,7 @@ const u = {
           achievements: (
             <>
               <p>Работал в двух проектах:</p>
-              <ol className="list-decimal">
+              <ol className="list-decimal list-inside space-y-2">
                 <li>
                   Разработка web-приложения для мониторинга внутренних
                   показателей компании. Стэк: React-Redux(RTK)-TypeScript.
@@ -408,142 +408,142 @@ export default function Home() {
   return (
     <main className="h-screen overflow-y-auto">
       <header className="bg-primary py-5 text-white">
-        <div className="mx-auto flex w-full max-w-screen-lg gap-4 px-4">
-          <div className="hidden md:my-5 h-fit w-fit shrink-0 overflow-hidden rounded-full md:block">
-            <Image
-              className="h-[80px] w-[80px] md:h-[160px] md:w-[160px]"
-              width={160}
-              height={160}
-              src={'/assets/avatar.jpg'}
-              alt="me"
-            />
-          </div>
-          <div className="flex flex-1 flex-row-reverse sm:flex-col">
-            <div className="ml-auto pl-8">EN</div>
-            <div className="flex flex-col sm:flex-row sm:gap-8 md:mt-3 lg:gap-16">
-              <div className="">
-                <h1 className="text-xl font-semibold uppercase tracking-wider md:text-2xl">
-                  {u.name}
-                </h1>
-                <h2 className="text-md mb-3 font-normal text-white/60 md:text-lg">
-                  {u.position}
-                </h2>
-                <p className="hidden text-sm text-white md:block">
-                  Some long long text Some long long text Some long long text
-                  Some long long text Some long long text Some long long text
-                  Some long long text Some long long text
-                </p>
+        <div className="mx-auto grid grid-cols-[1fr] sm:grid-cols-[2fr_1fr] w-full max-w-screen-lg gap-x-10 px-8">
+          <div className="sm:col-span-2 ml-auto pl-8">EN</div>
+          <div className='flex gap-8 items-center'>
+            <div className="hidden md:my-5 h-fit w-fit shrink-0 overflow-hidden rounded-full sm:block">
+              <Image
+                className="h-[100px] w-[100px] md:h-[160px] md:w-[160px]"
+                width={160}
+                height={160}
+                src={'/assets/avatar.jpg'}
+                alt="me"
+              />
+            </div>
+            <div className="flex-1">
+              <div className="flex flex-col sm:flex-row sm:gap-8 md:mt-3 lg:gap-16">
+                <div className="">
+                  <h1 className="text-xl font-semibold uppercase tracking-wider md:text-2xl">
+                    {u.name}
+                  </h1>
+                  <h2 className="text-md mb-3 font-normal text-white/60 md:text-lg">
+                    {u.position}
+                  </h2>
+                  <div className="hidden text-sm text-white md:block">
+                    {u.summary.content[lang]}
+                  </div>
+                </div>
               </div>
-
-              <address className="shrink-0 sm:ml-auto sm:mt-2 md:m-0 text-sm md:text-base">
-                <div className="space-y-2">
-                  <p className="flex items-center text-white">
-                    <Image
-                      width={20}
-                      height={20}
-                      src={'/assets/icons/email.svg'}
-                      alt="mail"
-                      className="mr-2"
-                    />
-                    <CopyButton copyText={u.mail} className="hover:underline">
-                      {u.mail}
-                    </CopyButton>
-                  </p>
-
-                  <p className="flex items-center text-white">
-                    <Image
-                      width={20}
-                      height={20}
-                      src={'/assets/icons/phone.svg'}
-                      alt="phone"
-                      className="mr-1"
-                    />
-                    <a className="hover:underline" href={`tel:${u.phone}`}>
-                      {u.phone}
-                    </a>
-                  </p>
-                </div>
-                <div className="my-2 flex gap-2">
-                  {u.contacts.telegram && (
-                    <CopyButton
-                      className="mb-1 flex items-center text-white"
-                      title={u.contacts.telegram.title}
-                      copyText={u.contacts.telegram.title}
-                    >
-                      <Image
-                        src={'/assets/icons/telegram.svg'}
-                        alt={'telegram'}
-                        width={24}
-                        height={24}
-                      />
-                    </CopyButton>
-                  )}
-                  {u.contacts.in && (
-                    <a
-                      className="mb-1 flex items-center text-white"
-                      href={u.contacts.in.link}
-                    >
-                      <Image
-                        width={24}
-                        height={24}
-                        src={'/assets/icons/linkedin-icon.svg'}
-                        alt="icon"
-                        className="mr-1 h-6 w-6"
-                      />
-                    </a>
-                  )}
-                  {u.contacts.github && (
-                    <a
-                      className="mb-1 mr-2 flex items-center text-white"
-                      href={u.contacts.github.link}
-                    >
-                      <Image
-                        src={'/assets/icons/github-icon.svg'}
-                        alt={'github'}
-                        width={24}
-                        height={24}
-                      />
-                    </a>
-                  )}
-                  {u.contacts.codeopen && (
-                    <div className="mb-1 mr-2 flex items-center text-white">
-                      <Image
-                        width={24}
-                        height={24}
-                        src={'/assets/icons/codepen-icon.svg'}
-                        alt="codeopen"
-                        className="mr-1 h-6 w-6"
-                      />
-                    </div>
-                  )}
-                  {u.contacts.web && (
-                    <div className="mb-1 flex items-center text-white">
-                      <Image
-                        width={24}
-                        height={24}
-                        src={'/assets/icons/website-icon.svg'}
-                        alt="web"
-                        className="mr-1 h-6 w-6"
-                      />
-                    </div>
-                  )}
-                </div>
-              </address>
             </div>
           </div>
+          <address className="shrink-0 sm:mt-6 sm:ml-auto text-sm md:text-base">
+              <div className="space-y-2">
+                <p className="flex items-center text-white">
+                  <Image
+                    width={20}
+                    height={20}
+                    src={'/assets/icons/email.svg'}
+                    alt="mail"
+                    className="mr-2"
+                  />
+                  <CopyButton copyText={u.mail} className="hover:underline">
+                    {u.mail}
+                  </CopyButton>
+                </p>
+
+                <p className="flex items-center text-white">
+                  <Image
+                    width={20}
+                    height={20}
+                    src={'/assets/icons/phone.svg'}
+                    alt="phone"
+                    className="mr-1"
+                  />
+                  <a className="hover:underline" href={`tel:${u.phone}`}>
+                    {u.phone}
+                  </a>
+                </p>
+              </div>
+              <div className="my-2 flex gap-2">
+                {u.contacts.telegram && (
+                  <CopyButton
+                    className="mb-1 flex items-center text-white"
+                    title={u.contacts.telegram.title}
+                    copyText={u.contacts.telegram.title}
+                  >
+                    <Image
+                      src={'/assets/icons/telegram.svg'}
+                      alt={'telegram'}
+                      width={24}
+                      height={24}
+                    />
+                  </CopyButton>
+                )}
+                {u.contacts.in && (
+                  <a
+                    className="mb-1 flex items-center text-white"
+                    href={u.contacts.in.link}
+                  >
+                    <Image
+                      width={24}
+                      height={24}
+                      src={'/assets/icons/linkedin-icon.svg'}
+                      alt="icon"
+                      className="mr-1 h-6 w-6"
+                    />
+                  </a>
+                )}
+                {u.contacts.github && (
+                  <a
+                    className="mb-1 mr-2 flex items-center text-white"
+                    href={u.contacts.github.link}
+                  >
+                    <Image
+                      src={'/assets/icons/github-icon.svg'}
+                      alt={'github'}
+                      width={24}
+                      height={24}
+                    />
+                  </a>
+                )}
+                {u.contacts.codeopen && (
+                  <div className="mb-1 mr-2 flex items-center text-white">
+                    <Image
+                      width={24}
+                      height={24}
+                      src={'/assets/icons/codepen-icon.svg'}
+                      alt="codeopen"
+                      className="mr-1 h-6 w-6"
+                    />
+                  </div>
+                )}
+                {u.contacts.web && (
+                  <div className="mb-1 flex items-center text-white">
+                    <Image
+                      width={24}
+                      height={24}
+                      src={'/assets/icons/website-icon.svg'}
+                      alt="web"
+                      className="mr-1 h-6 w-6"
+                    />
+                  </div>
+                )}
+              </div>
+            </address>
         </div>
       </header>
       <div
-        className="m-auto grid cols-span-1 w-full p-4 md:col-span-2 md:grid-cols-[2fr_1fr] md:grid-rows-[auto_5fr] gap-8 md:p-8 lg:w-[1024px]">
-        <div className="col-start-1 col-end-[-1]">
-          <InfoBlock title={u.summary.title[lang]}>
-            {u.summary.content[lang]}
-          </InfoBlock>
-        </div>
+        className="m-auto grid cols-span-1 w-full p-4 md:col-span-2 md:grid-cols-[2fr_1fr] md:grid-rows-[auto_5fr] gap-10 md:p-8 lg:w-[1024px]">
+        {/*<div className="col-start-1 col-end-[-1]">*/}
+        {/*  <InfoBlock title={u.summary.title[lang]}>*/}
+
+        {/*  </InfoBlock>*/}
+        {/*</div>*/}
         <InfoBlock title={u.experience.title[lang]}>
           {u.experience.content[lang].map((job, index) => (
             <div
               key={index}
+              className="my-8"
               onClick={() =>
                 setActiveJob((prevState) =>
                   prevState?.company === job.company ? null : job,
@@ -558,7 +558,7 @@ export default function Home() {
             </div>
           ))}
         </InfoBlock>
-        <div className="md:pl-4">
+        <div className="space-y-8">
           {u.skills.content[lang] && (
             <InfoBlock title={u.skills.title[lang]}>
               {u.skills.content[lang].map((skill) => (

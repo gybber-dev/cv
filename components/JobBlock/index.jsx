@@ -27,7 +27,7 @@ const JobBlock = ({
   lang,
   portfolio = null,
 }) => (
-  <section className={classNames('transition-colors ease-in-out delay-100 p-6 pb-6 cursor-pointer rounded-2xl', { 'bg-amber-300/50 hover:bg-amber-300/50': isActive, ' hover:bg-amber-300/20': !isActive })}>
+  <section className={classNames('-m-3 p-3 md:-m-6 md:p-6 transition-colors ease-in-out delay-100 cursor-pointer rounded-2xl', { 'bg-amber-300/50 hover:bg-amber-300/50': isActive, ' hover:bg-amber-300/20': !isActive })}>
     <div className='flex justify-between font-bold text-primary'>
       <div className='text-lg'>{position}</div>
       <div>{company}</div>
