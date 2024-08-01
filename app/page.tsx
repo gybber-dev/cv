@@ -7,6 +7,7 @@ import SkillBlock from '../components/SkillBlock'
 import EduBlock from '../components/EduBlock'
 import ListBlock from '../components/ListBlock'
 import { useState } from 'react'
+import CopyButton from '../components/ui/button-copy'
 
 const u = {
   name: 'Азат Фаезов',
@@ -406,118 +407,134 @@ export default function Home() {
 
   return (
     <main className="h-screen overflow-y-auto">
-      <header className="py-4 min-w-max bg-primary text-white">
-        <div className="mx-auto flex w-full max-w-screen-lg px-4 gap-4">
-          <div className='shrink-0 rounded-full overflow-hidden h-fit w-fit'>
-            <Image width={160} height={160} src={'/assets/avatar.jpg'} alt="me" />
+      <header className="bg-primary py-5 text-white">
+        <div className="mx-auto flex w-full max-w-screen-lg gap-4 px-4">
+          <div className="hidden md:my-5 h-fit w-fit shrink-0 overflow-hidden rounded-full md:block">
+            <Image
+              className="h-[80px] w-[80px] md:h-[160px] md:w-[160px]"
+              width={160}
+              height={160}
+              src={'/assets/avatar.jpg'}
+              alt="me"
+            />
           </div>
-          <div className="flex-1 mt-4">
-            <div className=''>
-              <h1 className="text-xl font-semibold uppercase tracking-wider md:text-2xl">
-                {u.name}
-              </h1>
-              <h2 className="text-md mb-3 font-normal md:text-lg text-white/60">
-                {u.position}
-              </h2>
-              <p className='text-sm text-white'>Some long long text Some long long text Some long long text Some long
-                long text Some long long text Some long long text Some long long text Some long long text</p>
-            </div>
-
-          </div>
-          <address className='ml-10'>
-            <div>
-              <p className="flex items-center text-white">
-                <Image
-                  width={20}
-                  height={20}
-                  src={'/assets/icons/envelope-icon.svg'}
-                  alt="mail"
-                  className="mr-1"
-                />
-                {u.mail}
-              </p>
-
-              <div className="flex items-center text-white">
-                <Image
-                  width={20}
-                  height={20}
-                  src={'/assets/icons/mobile-icon.svg'}
-                  alt="phone"
-                  className="mr-1"
-                />
-                {u.phone}
+          <div className="flex flex-1 flex-row-reverse sm:flex-col">
+            <div className="ml-auto pl-8">EN</div>
+            <div className="flex flex-col sm:flex-row sm:gap-8 md:mt-3 lg:gap-16">
+              <div className="">
+                <h1 className="text-xl font-semibold uppercase tracking-wider md:text-2xl">
+                  {u.name}
+                </h1>
+                <h2 className="text-md mb-3 font-normal text-white/60 md:text-lg">
+                  {u.position}
+                </h2>
+                <p className="hidden text-sm text-white md:block">
+                  Some long long text Some long long text Some long long text
+                  Some long long text Some long long text Some long long text
+                  Some long long text Some long long text
+                </p>
               </div>
-            </div>
-            <div className="my-2 flex">
-              {u.contacts.telegram && (
-                <a
-                  className="mb-1 mr-2 flex items-center text-white"
-                  href={u.contacts.telegram.link}
-                >
-                  <Image
-                    src={'/assets/icons/telegram.svg'}
-                    alt={'telegram'}
-                    width={20}
-                    height={20}
-                  />
-                </a>
-              )}
-              {u.contacts.in && (
-                <a
-                  className="mb-1 mr-2 flex items-center text-white"
-                  href={u.contacts.in.link}
-                >
-                  <Image
-                    width={20}
-                    height={20}
-                    src={'/assets/icons/linkedin-icon.svg'}
-                    alt="icon"
-                    className="mr-1 h-6 w-6"
-                  />
-                </a>
-              )}
-              {u.contacts.github && (
-                <a
-                  className="mb-1 mr-2 flex items-center text-white"
-                  href={u.contacts.github.link}
-                >
-                  <Image
-                    src={'/assets/icons/github-icon.svg'}
-                    alt={'github'}
-                    width={20}
-                    height={20}
-                  />
-                </a>
-              )}
-              {u.contacts.codeopen && (
-                <div className="mb-1 mr-2 flex items-center text-white">
-                  <Image
-                    width={20}
-                    height={20}
-                    src={'/assets/icons/codepen-icon.svg'}
-                    alt="codeopen"
-                    className="mr-1 h-6 w-6"
-                  />
-                </div>
-              )}
-              {u.contacts.web && (
-                <div className="mb-1 flex items-center text-white">
-                  <Image
-                    width={20}
-                    height={20}
-                    src={'/assets/icons/website-icon.svg'}
-                    alt="web"
-                    className="mr-1 h-6 w-6"
-                  />
-                </div>
-              )}
-            </div>
 
-          </address>
+              <address className="shrink-0 sm:ml-auto sm:mt-2 md:m-0 text-sm md:text-base">
+                <div className="space-y-2">
+                  <p className="flex items-center text-white">
+                    <Image
+                      width={20}
+                      height={20}
+                      src={'/assets/icons/email.svg'}
+                      alt="mail"
+                      className="mr-2"
+                    />
+                    <CopyButton copyText={u.mail} className="hover:underline">
+                      {u.mail}
+                    </CopyButton>
+                  </p>
+
+                  <p className="flex items-center text-white">
+                    <Image
+                      width={20}
+                      height={20}
+                      src={'/assets/icons/phone.svg'}
+                      alt="phone"
+                      className="mr-1"
+                    />
+                    <a className="hover:underline" href={`tel:${u.phone}`}>
+                      {u.phone}
+                    </a>
+                  </p>
+                </div>
+                <div className="my-2 flex gap-2">
+                  {u.contacts.telegram && (
+                    <CopyButton
+                      className="mb-1 flex items-center text-white"
+                      title={u.contacts.telegram.title}
+                      copyText={u.contacts.telegram.title}
+                    >
+                      <Image
+                        src={'/assets/icons/telegram.svg'}
+                        alt={'telegram'}
+                        width={24}
+                        height={24}
+                      />
+                    </CopyButton>
+                  )}
+                  {u.contacts.in && (
+                    <a
+                      className="mb-1 flex items-center text-white"
+                      href={u.contacts.in.link}
+                    >
+                      <Image
+                        width={24}
+                        height={24}
+                        src={'/assets/icons/linkedin-icon.svg'}
+                        alt="icon"
+                        className="mr-1 h-6 w-6"
+                      />
+                    </a>
+                  )}
+                  {u.contacts.github && (
+                    <a
+                      className="mb-1 mr-2 flex items-center text-white"
+                      href={u.contacts.github.link}
+                    >
+                      <Image
+                        src={'/assets/icons/github-icon.svg'}
+                        alt={'github'}
+                        width={24}
+                        height={24}
+                      />
+                    </a>
+                  )}
+                  {u.contacts.codeopen && (
+                    <div className="mb-1 mr-2 flex items-center text-white">
+                      <Image
+                        width={24}
+                        height={24}
+                        src={'/assets/icons/codepen-icon.svg'}
+                        alt="codeopen"
+                        className="mr-1 h-6 w-6"
+                      />
+                    </div>
+                  )}
+                  {u.contacts.web && (
+                    <div className="mb-1 flex items-center text-white">
+                      <Image
+                        width={24}
+                        height={24}
+                        src={'/assets/icons/website-icon.svg'}
+                        alt="web"
+                        className="mr-1 h-6 w-6"
+                      />
+                    </div>
+                  )}
+                </div>
+              </address>
+            </div>
+          </div>
         </div>
       </header>
       <div
-        className="m-auto block w-full p-4 md:col-span-2 md:grid md:grid-cols-[2fr_1fr] md:grid-rows-[auto_5fr] md:p-8 lg:w-[1024px]">
+        className="m-auto grid cols-span-1 w-full p-4 md:col-span-2 md:grid-cols-[2fr_1fr] md:grid-rows-[auto_5fr] gap-8 md:p-8 lg:w-[1024px]">
         <div className="col-start-1 col-end-[-1]">
           <InfoBlock title={u.summary.title[lang]}>
             {u.summary.content[lang]}
@@ -529,7 +546,7 @@ export default function Home() {
               key={index}
               onClick={() =>
                 setActiveJob((prevState) =>
-                  prevState?.company === job.company ? null : job
+                  prevState?.company === job.company ? null : job,
                 )
               }
             >
