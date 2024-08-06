@@ -1,19 +1,31 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react'
+import { ButtonHTMLAttributes } from 'react'
+import Notification from '@components/ui/notification'
+import { useCopyToClipboard } from '@utils/hooks'
 
 type Props = {
-  copyText: string;
+  copyText: string
 }
 
-const CopyButton = ({ copyText, children, ...rest }: Props & ButtonHTMLAttributes<HTMLButtonElement> ) => {
-  const copyToClipboard = () => {
-    console.log('copyToClipboard', copyText) // TODO
+const CopyButton = ({
+  copyText,
+  children,
+  ...rest
+}: Props & ButtonHTMLAttributes<HTMLButtonElement>) => {
+  const [isCopied, copy] = useCopyToClipboard()
+  const copyHandler = async () => {
+    await copy(copyText)
   }
 
   return (
-    <button {...rest} onClick={copyToClipboard}>
-      {children}
-    </button>
+    <>
+      <button {...rest} onClick={copyHandler}>
+        {children}
+      </button>
+      <Notification message="Copied!" show={isCopied} />
+    </>
   )
 }
+
+
 
 export default CopyButton

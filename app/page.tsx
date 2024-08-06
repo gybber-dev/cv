@@ -1,13 +1,14 @@
 'use client'
 
 import Image from 'next/image'
-import InfoBlock from '../components/InfoBlock'
-import JobBlock from '../components/JobBlock'
-import SkillsBlock from '../components/skills-block'
-import EduBlock from '../components/EduBlock'
-import ListBlock from '../components/ListBlock'
+import InfoBlock from '@components/InfoBlock'
+import JobBlock from '@components/JobBlock'
+import SkillsBlock from '@components/skills-block'
+import EduBlock from '@components/EduBlock'
+import ListBlock from '@components/ListBlock'
 import { useState } from 'react'
-import CopyButton from '../components/ui/button-copy'
+import CopyButton from '@components/ui/button-copy'
+import TopPanel from '@components/ui/top-panel'
 
 const u = {
   name: 'Азат Фаезов',
@@ -113,11 +114,9 @@ const u = {
           achievements: (
             <>
               <p>
-                Фронтовая часть криптобиржи. Занимался переводом проекта с VueJS на NextJS. Стэк:
-                React-Redux-TypeScript-Vue.{' '}
-              </p>
-              <p>
-                Получил ценный опыт запуска приложений &apos;с нуля&apos;.
+                Разработка криптобиржи. Стэк: NextJS-Redux-TypeScript. Опыт разработки приложений "с
+                нуля", интеграция сервисов для работы криптобиржи, участие в разработке бэкенда,
+                деплой бэкенда и фронтенда, организация работы команды программистов
               </p>
             </>
           ),
@@ -365,25 +364,25 @@ const u = {
 }
 
 /* TODO:
-* TypeScript
-* Languages
-* PDF-downloader
-* CopyButton
-* */
+ * TypeScript
+ * Languages
+ * PDF-downloader
+ * */
 
 export default function Home() {
+  const t = (phrase) => phrase
   const [activeJob, setActiveJob] = useState<number | undefined>()
   const [lang, setLang] = useState('ru')
 
   return (
-    <main className="h-screen overflow-y-auto">
+    <main className="relative bg-[#D6DBDC]/10 print:mx-6 print:my-8 print:bg-white">
+      <TopPanel />
       <header className="bg-primary py-5 text-white">
         <div className="mx-auto grid w-full max-w-screen-lg grid-cols-[1fr] gap-x-12 px-8 sm:grid-cols-[2fr_1fr]">
-          {/*<div className="ml-auto pl-8 sm:col-span-2">PDF EN</div>*/}
           <div className="flex items-center gap-8">
-            <div className="hidden h-fit w-fit shrink-0 overflow-hidden rounded-full sm:block md:my-5">
+            <div className="hidden h-fit w-fit shrink-0 overflow-hidden rounded-full sm:flex sm:items-center sm:justify-center md:my-5">
               <Image
-                className="h-[100px] w-[100px] md:h-[160px] md:w-[160px]"
+                className="flex h-[100px] w-[100px] md:h-[160px] md:w-[160px] "
                 width={160}
                 height={160}
                 src={'/assets/avatar.jpg'}
@@ -498,7 +497,7 @@ export default function Home() {
       </header>
       <div className="cols-span-1 m-auto grid w-full gap-12 p-4 md:col-span-2 md:grid-cols-[2fr_1fr] md:grid-rows-[auto_5fr] md:p-8 lg:w-[1024px]">
         <InfoBlock title={u.experience.title[lang]}>
-          <div className="flex flex-col-reverse -mt-4">
+          <div className="-mt-4 flex flex-col-reverse">
             {u.experience.content[lang].map((job, index) => (
               <div key={index} className="my-8" onClick={() => setActiveJob(index)}>
                 <JobBlock isActive={activeJob === index} lang={lang} {...job} />
