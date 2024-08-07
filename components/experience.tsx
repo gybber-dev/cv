@@ -1,11 +1,10 @@
 'use client'
 
-import InfoBlock from '@components/InfoBlock'
-import JobBlock from '@components/JobBlock'
+import InfoBlock from '@components/info-block'
+import JobBlock, { Job } from '@components/job-block'
 import SkillsBlock from '@components/skills-block'
-import EduBlock from '@components/EduBlock'
-import ListBlock from '@components/ListBlock'
-import { useState } from 'react'
+import EduBlock, { EducationType } from '@components/edu-block'
+import React, { useState } from 'react'
 import { useTranslations } from 'next-intl'
 
 const skills = {
@@ -36,7 +35,7 @@ const Experience = () => {
   const [activeJob, setActiveJob] = useState<number | undefined>()
   const lang = 'ru'
   const t = useTranslations('Experience')
-  const jobs = [
+  const jobs: Job[] = [
     {
       position: t('position-1'),
       company: t('company-1'),
@@ -71,7 +70,7 @@ const Experience = () => {
       tags: ['React', 'Redux', 'Redux Toolkit', 'TypeScript', 'NextJS', 'VueJS'],
     },
   ]
-  const education = [
+  const education: EducationType[] = [
     {
       spec: t('education-1'),
       place: t('education-place-1'),
@@ -129,12 +128,23 @@ const Experience = () => {
         )}
         {languages.length > 0 && (
           <InfoBlock title={t('languages')}>
-            <ListBlock list={languages} />
+            <ul>
+              {languages.map((item) => (
+                <li className="flex" key={item.name}>
+                  <span className="font-semibold">{item.name}</span>
+                  {item.comment && <span className="ml-1">{item.comment}</span>}
+                </li>
+              ))}
+            </ul>
           </InfoBlock>
         )}
         {interests.length > 0 && (
           <InfoBlock title={t('interests')}>
-            <ListBlock list={interests} />
+            {interests.map((item) => (
+              <li className="font-semibold" key={item.name}>
+                {item.name}
+              </li>
+            ))}
           </InfoBlock>
         )}
       </div>

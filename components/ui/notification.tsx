@@ -1,3 +1,5 @@
+'use client'
+
 import { createPortal } from 'react-dom'
 import classNames from 'classnames'
 
@@ -7,6 +9,8 @@ type Props = {
 }
 
 const Notification = ({ message, show }: Props) => {
+  if (typeof document === 'undefined') return null
+  
   return createPortal(
     <div
       className={classNames(

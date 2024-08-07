@@ -49,6 +49,10 @@
     "interest-2": "Tourism & Hiking"
   },
   "ui": {
-    "Copied": "Copied!"
+    "Copied": "Copied!",
+    "Change Language": "Change Language",
+    "Print CV": "Print CV",
+    "Others": "Others",
+    "Frontend": "Frontend"
   }
 }

@@ -38,12 +38,7 @@ const contacts: Contact[] = [
   },
 ]
 
-/* TODO:
- * TypeScript
- * */
-
 export default function Home() {
-  const lang = 'ru'
   const t = useTranslations('User')
 
   return (

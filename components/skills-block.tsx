@@ -1,5 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
+import { useTranslations } from 'next-intl';
 
 type SkillBlockProps = {
   baseSkills: Array<{ name: string; totalProgress: number; jobsProgress: number[] }>
@@ -8,7 +9,7 @@ type SkillBlockProps = {
 }
 
 const SkillsBlock = ({ activeJobIndex, baseSkills, otherSkills }: SkillBlockProps) => {
-  const t = (phrase) => phrase
+  const t = useTranslations('ui')
   return (
     <div>
       {baseSkills && (

@@ -13,7 +13,7 @@ const CopyButton = ({
   ...rest
 }: Props & ButtonHTMLAttributes<HTMLButtonElement>) => {
   const t = useTranslations('ui')
-  const [isCopied, copy] = useCopyToClipboard()
+  const {isCopied, copy} = useCopyToClipboard()
   const copyHandler = async () => {
     await copy(copyText)
   }

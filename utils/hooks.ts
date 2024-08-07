@@ -17,5 +17,5 @@ export const useCopyToClipboard = (timeout: number = 2000) => {
     }
   }
 
-  return [isCopied, copy]
+  return {isCopied, copy}
 }

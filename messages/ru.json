@@ -49,6 +49,10 @@
     "interest-2": "Туризм"
   },
   "ui": {
-    "Copied": "Скопировано"
+    "Copied": "Скопировано",
+    "Change Language": "Сменить язык",
+    "Print CV": "Печать резюме",
+    "Others": "Прочие",
+    "Frontend": "Frontend"
   }
 }

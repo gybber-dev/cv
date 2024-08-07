@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { ReactNode } from 'react'
 import classNames from 'classnames';
 import { useTranslations } from 'next-intl'
+
+
+export type Job = {
+  position: string,
+  company: string,
+  from: string,
+  to: string,
+  achievements: string | ReactNode,
+  tags: string[],
+  portfolio?: string,
+}
+type Props = { isActive: boolean} & Job
 
 const JobBlock = ({
   isActive,
@@ -10,8 +22,8 @@ const JobBlock = ({
   to,
   achievements,
   tags,
-  portfolio = null,
-}) => {
+  portfolio = '',
+}: Props) => {
   const t = useTranslations('Experience')
 
   return (
@@ -37,7 +49,7 @@ const JobBlock = ({
         <div className='font-semibold text-simple my-2'>
           {t('portfolio')}
         </div>
-        <a href={portfolio}>{portfolio}</a>
+        <a target='_blank' href={portfolio}>{portfolio}</a>
       </>}
     </section>
   );
