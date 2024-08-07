@@ -1,6 +1,54 @@
 {
   "Error": {},
-  "Home": {
-    "title": "Hello"
+  "User": {
+    "title": "CV - Faezov",
+    "name": "Azat Faezov",
+    "position": "Frontend developer",
+    "mail": "az.faezov@gmail.com",
+    "phone": "+7 707 350 64 45",
+    "summary": "I strive to understand the essence of the matter in order to solve the problems necessary for business.",
+    "summaryTitle": "About me"
+  },
+  "Experience": {
+    "title": "Work experience",
+    "achievements": "Achievements:",
+    "technologies": "Technologies used:",
+    "portfolio": "Portfolio:",
+    "skills": "Skills & tools",
+    "education": "Education",
+    "languages": "Languages",
+    "interests": "Interests",
+    "position-1": "Data Entry Group Manager",
+    "company-1": "Yandex",
+    "from-1": "August 2014",
+    "to-1": "August 2020",
+    "achievements-1": "I was engaged in filling product catalogs for the Yandex.Market platform. During my work, I wrote JavaScript scripts that automated a significant part of the routine work of operators.",
+    "position-2": "Frontend developer",
+    "company-2": "Sber",
+    "from-2": "June 2021",
+    "to-2": "October 2022",
+    "achievements-2-1": "I worked on two projects:",
+    "achievements-2-2": "Developing a web application for monitoring the company's internal indicators. Stack: React-Redux(RTK)-TypeScript. Gained experience in corporate interaction, Agile/Jira. Translated the project from classic Redux to RTK",
+    "achievements-2-3": "Developing a web application for working with a large amount of statistical information. Stack: React-MobX-TypeScript. Gained experience in organizing the architecture of a project working with a large amount of data. Carried out the typing of the main application nodes and the transfer of outdated components to TypeScript.",
+    "position-3": "Frontend developer",
+    "company-3": "Crontech",
+    "from-3": "October 2022",
+    "to-3": "to present",
+    "achievements-3": "Development of a crypto exchange. Stack: NextJS-Redux-TypeScript. Experience in developing applications from scratch, integrating services for the operation of a crypto exchange, participating in the development of the backend, deploying the backend and frontend, organizing the work of a team of programmers",
+    "education-1": "Computer science",
+    "education-place-1": "School 21 (Sber)",
+    "education-2": "Machine Learning",
+    "education-place-2": "Coursera (Andrew Ng, Stanford University)",
+    "education-3": "Faculty of Automation of Production Processes",
+    "education-place-3": "Ufa State Petroleum Technological University",
+    "languageName-1": "Russian",
+    "languageName-2": "English",
+    "languageComment-1": "(native)",
+    "languageComment-2": "(B1)",
+    "interest-1": "Snowboarding",
+    "interest-2": "Tourism & Hiking"
+  },
+  "ui": {
+    "Copied": "Copied!"
   }
 }

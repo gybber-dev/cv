@@ -21,8 +21,8 @@ const TopPanel = ({}: Props) => {
   }
 
   return (
-    <aside className="sticky top-0 z-40 bg-primary print:hidden">
-      <div className="mx-auto flex max-w-screen-lg items-center justify-end gap-4 py-1 pr-8">
+    <aside className="sticky top-0 z-40 bg-primary print:hidden border-b">
+      <div className="mx-auto flex max-w-screen-lg items-center justify-end gap-4 py-1 pr-4 md:pr-8">
         <button title={t('Print CV')} onClick={printDocument}>
           <Image width={20} height={20} src="/assets/icons/print.svg" alt="download" className="" />
         </button>

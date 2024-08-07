@@ -1,6 +1,7 @@
 import { ButtonHTMLAttributes } from 'react'
 import Notification from '@components/ui/notification'
 import { useCopyToClipboard } from '@utils/hooks'
+import { useTranslations } from 'next-intl'
 
 type Props = {
   copyText: string
@@ -11,6 +12,7 @@ const CopyButton = ({
   children,
   ...rest
 }: Props & ButtonHTMLAttributes<HTMLButtonElement>) => {
+  const t = useTranslations('ui')
   const [isCopied, copy] = useCopyToClipboard()
   const copyHandler = async () => {
     await copy(copyText)
@@ -21,7 +23,7 @@ const CopyButton = ({
       <button {...rest} onClick={copyHandler}>
         {children}
       </button>
-      <Notification message="Copied!" show={isCopied} />
+      <Notification message={t('Copied')} show={isCopied} />
     </>
   )
 }
