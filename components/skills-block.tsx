@@ -14,8 +14,8 @@ const SkillsBlock = ({ activeJobIndex, baseSkills, otherSkills }: SkillBlockProp
     <div>
       {baseSkills && (
         <>
-          <h4 className="my-2 mt-4 pt-2 font-semibold text-simple">{t('Frontend')}</h4>
-          <div>
+          <h4 className="my-2 mt-4 pt-2 font-semibold text-simple print:hidden">{t('Frontend')}</h4>
+          <div className="print:hidden">
             {baseSkills.map((skill, index) => (
               <SkillProgressItem
                 key={index}

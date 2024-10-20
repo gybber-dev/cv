@@ -23,6 +23,7 @@ const skills = {
     'Git',
     'Linux',
     'Python',
+    'C/C++',
     'SQL',
     'Docker/Docker-compose',
     'Headless',
@@ -33,7 +34,6 @@ const skills = {
 
 const Experience = () => {
   const [activeJob, setActiveJob] = useState<number | undefined>()
-  const lang = 'ru'
   const t = useTranslations('Experience')
   const jobs: Job[] = [
     {
