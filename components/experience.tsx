@@ -43,7 +43,7 @@ const Experience = () => {
       to: t('to-1'),
       achievements: t('achievements-1'),
       tags: ['JavaScript', 'Headless', 'Parsers'],
-      portfolio: 'https://github.com/gybber-dev/JavaScript-projects/tree/master/JS',
+      portfolio: { link: '/assets/recommendation.jpg', title: t('recommendation') }
     },
     {
       position: t('position-2'),

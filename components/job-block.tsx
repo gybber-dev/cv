@@ -10,9 +10,9 @@ export type Job = {
   to: string,
   achievements: string | ReactNode,
   tags: string[],
-  portfolio?: string,
+  portfolio?: { link: string; title: string },
 }
-type Props = { isActive: boolean} & Job
+type Props = { isActive: boolean } & Job
 
 const JobBlock = ({
   isActive,
@@ -22,7 +22,7 @@ const JobBlock = ({
   to,
   achievements,
   tags,
-  portfolio = '',
+  portfolio
 }: Props) => {
   const t = useTranslations('Experience')
 
@@ -49,7 +49,7 @@ const JobBlock = ({
         <div className='font-semibold text-simple my-2'>
           {t('portfolio')}
         </div>
-        <a target='_blank' href={portfolio}>{portfolio}</a>
+        <a className='hover:underline' target='_blank' href={portfolio.link}>{portfolio.title}</a>
       </>}
     </section>
   );
