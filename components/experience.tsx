@@ -77,11 +77,6 @@ const Experience = () => {
       period: '2020 - 2022',
     },
     {
-      spec: t('education-2'),
-      place: t('education-place-2'),
-      period: '2019',
-    },
-    {
       spec: t('education-3'),
       place: t('education-place-3'),
       period: '2008 - 2013',
@@ -97,7 +92,8 @@ const Experience = () => {
       comment: t('languageComment-2'),
     },
   ]
-  const interests = [{ name: t('interest-1') }, { name: t('interest-2') }]
+  const interests = [{ name: t('interest-1') }, { name: t('interest-2') }, { name: t('interest-3') }]
+
   return (
     <div className="cols-span-1 m-auto grid w-full gap-12 p-4 md:col-span-2 md:grid-cols-[2fr_1fr] md:grid-rows-[auto_5fr] md:p-8 lg:w-[1024px]">
       <InfoBlock title={t('title')}>
