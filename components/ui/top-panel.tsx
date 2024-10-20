@@ -1,22 +1,17 @@
 'use client'
 
 import Image from 'next/image'
-import { useReactToPrint } from 'react-to-print'
-import { Link, usePathname, useRouter } from '@/navigation'
+import { Link } from '@/navigation'
 import { useParams } from 'next/navigation'
 import { defaultLocale } from '@/config'
 import { useTranslations } from 'next-intl'
 
-const CV_FILE_NAME = 'faezov-cv.pdf'
-
 const TopPanel = () => {
   const { locale } = useParams()
   const t = useTranslations('ui')
-  const createPrintView = useReactToPrint({
-    documentTitle: CV_FILE_NAME,
-  })
+
   const printDocument = () => {
-    createPrintView(null, () => document.body)
+    window?.print()
   }
 
   return (
